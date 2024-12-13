@@ -1,7 +1,9 @@
 import React from 'react'
-import octokit from "@/app/utils/octokit";
-import Custom404 from '@/app/components/Custom404';
-import Repository from '@/app/components/Repository';
+import octokit from "@/utils/octokit";
+import Custom404 from '@/components/Custom404';
+import Repository from '@/components/Repository';
+import UserInfo from '@/components/UserInfo';
+import { Flex } from '@chakra-ui/react';
 
 const fetchData = async (username: string) => {
     try {
@@ -19,22 +21,26 @@ const fetchData = async (username: string) => {
 const page = async (
     {
         params,
+        searchParams
     }: {
-        params: Promise<{ username: string }>
+        params: Promise<{ username: string }>,
+        searchParams: any
     }
+
 ) => {
     const username = (await params).username
     const user = await fetchData(username)
+    const page = parseInt(searchParams.page || '1', 10);
     if (user) {
         return (
-            <div>
-                {user.data.name}
-                <Repository username={username} />
-            </div>
+            <Flex direction={'column'} alignItems={'center'} width={'100%'}>
+                <UserInfo data={{ ...user.data, username }} />
+                <Repository username={username} page={page} />
+            </Flex>
         )
     }
     return (
-        <Custom404 username={username} />
+        <Custom404 message={`${username} not found!!!`} />
     )
 }
 export default page
