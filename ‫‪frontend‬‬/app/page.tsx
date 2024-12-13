@@ -1,7 +1,15 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import octokit from "@/utils/octokit";
 
+const fetchData = async () => {
+  await octokit.request('GET /users/{username}/repos', {
+    username: 'asmachegeni'
+  })
+
+}
 export default function Home() {
+  fetchData()
   return (
     <div className={styles.page}>
       <main className={styles.main}>
