@@ -5,7 +5,6 @@ import UserInfo from '@/components/UserInfo';
 import { Flex } from '@chakra-ui/react';
 import { fetchProfile } from '@/services/profile';
 import { IProfile } from '@/types/profile';
-import { ImProfile } from 'react-icons/im';
 
 const page = async (
     {

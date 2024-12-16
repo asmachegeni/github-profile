@@ -11,7 +11,7 @@ import { useRouter } from 'next/navigation';
 
 const Pagination = ({ username, total }: {
     username: string,
-    total: any
+    total: number
 }) => {
     const router = useRouter()
     return (

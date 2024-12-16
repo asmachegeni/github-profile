@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Here is the **English version** of the `README.md` file for a Next.js project with clear instructions for cloning, running, and understanding the project structure.
+
+---
+
+## **README.md**
+
+```markdown
+# Next.js Project
+
+This project is built using **Next.js** and includes [brief description of the project's features].
+
+---
+
+## Prerequisites
+
+Before running this project, make sure you have the following tools installed:
+
+- [Node.js](https://nodejs.org/) version `14.x` or later
+- [Git](https://git-scm.com/)
+- A package manager: **npm** (default), **yarn**, or **pnpm**
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the repository
+
+To get started, clone the project repository using the following command:
+
+```bash
+git clone https://github.com/asmachegeni/quera-task.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd quera-task/frontend
+```
+
+### 2. Install dependencies
+
+Install the required packages by running one of the following commands:
+
+**Using npm:**
+```bash
+npm install
+```
+
+**Using yarn:**
+```bash
+yarn
+```
+
+**Using pnpm:**
+```bash
+pnpm install
+```
+
+---
+
+## Running the Project
+
+To start the development server, use the following command:
 
 ```bash
 npm run dev
-# or
+```
+or
+```bash
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The project will be available at [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Available Scripts
 
-## Learn More
+- **Run the development server:**
+  ```bash
+  npm run dev
+  ```
+- **Build the project for production:**
+  ```bash
+  npm run build
+  ```
+- **Start the production server:**
+  ```bash
+  npm start
+  ```
+- **Run code linting:**
+  ```bash
+  npm run lint
+  ```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The project is organized as follows:
 
-## Deploy on Vercel
+```
+frontend/
+│
+├── public/               # Static files (images, icons, etc.)
+├── apps/                # Next.js pages
+├── components/           # Reusable components
+├── libs/               # utils files
+├── services/                  # fetch data files
+├── types/                  # defined types
+├── package.json          # Project configuration and scripts
+└── README.md # Project documentation
+└── .env   # env variable
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Features
+
+- Built with **Next.js** for server-side rendering (SSR) and static site generation (SSG)
+- Responsive design using [ Chakra UI]
+
+
+
+## Contact
+
+If you have any questions or issues, feel free to reach out:
+
+- **Email**: [as.ch.2280@gmail.com](mailto:as.ch.2280@gmail.com)
+- **GitHub**: [https://github.com/asmachegeni/](https://github.com/asmachegeni/)
+```
