@@ -1,41 +1,31 @@
 import { Box, Flex, Text } from '@chakra-ui/react'
 import React from 'react'
 import { Avatar } from "@/components/ui/avatar"
+import { IProfile } from '@/types/profile'
 
-const UserInfo = ({ data }: { data: any }) => {
+const UserInfo = ({ data }: { data: IProfile }) => {
     return (
-        <Flex width={'100%'} paddingTop={'8'} paddingBottom={'2'} gap={'4'} alignItems={'center'} direction={'column'}>
-            <Flex gap={'16'} justifyContent={'space-between'}>
-                <Avatar name="avatar" src={data.avatar_url} size="2xl" />
-                <Box>
-                    <Flex direction={'column'}>
-                        <Flex width={'full'} justifyContent={'space-evenly'} alignItems={'center'} gap={4}>
-                            <Text fontWeight={'bold'}>{data.name ? data.name : '---'} </Text><Text fontSize={'small'}>{`(${data.username})`}</Text>
-                        </Flex>
-                        <Box>
-                            <Text>{data.bio}</Text>
-                        </Box>
-                    </Flex>
-                </Box>
-            </Flex>
-            <Flex>
-                <Box>
-                    <Flex gap={'8'}>
-                        <Flex direction={'column'}>
-                            <Text>Followers</Text>
-                            <Text fontWeight={"bold"}>{data.followers}</Text>
-                        </Flex>
-
-                        <Flex direction={'column'}>
-                            <Text>Location</Text>
-                            <Text fontWeight={"bold"}>{data.location ?? '__'}</Text>
-                        </Flex>
-                        <Flex direction={'column'}>
-                            <Text>Blog</Text>
-                            <Text fontWeight={"bold"}>{data.blog ? data.blog : '__'}</Text>
-                        </Flex>
-                    </Flex>
-                </Box>
+        <Flex direction="column" align="center" p={4} borderRadius="md">
+            <Box width={'200px'} height={'200px'}>
+                <Avatar size="full"  src={data.avatar_url} mb={4} />
+            </Box>
+            <Text fontSize="xl" fontWeight="bold">
+                {data.name}
+            </Text>
+            <Text fontSize="md" >
+                @{data.login}
+            </Text>
+            <Text fontSize="sm" fontWeight="light" maxWidth={'250px'} >
+                {data.bio}
+            </Text>
+            <Text fontSize="md" fontWeight="light">
+                {data.blog}
+            </Text>
+            <Text mt={2} >
+                📍 {data.location}
+            </Text>
+            <Flex mt={4} gap={4}>
+                <Text>{data.followers} Followers</Text>
             </Flex>
         </Flex>
     )

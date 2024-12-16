@@ -2,9 +2,9 @@
 import { Box, Button, Flex, Input, Text } from '@chakra-ui/react'
 import React from 'react'
 import { redirect } from 'next/navigation'
-import { ColorModeButton } from "@/components/ui/color-mode"
 import { Field } from "@/components/ui/field"
 import { useForm } from "react-hook-form"
+import { ColorModeToggle } from './ColorModeToggle'
 
 interface FormValues {
     username: string
@@ -22,7 +22,7 @@ const SearchForm = () => {
     return (
         <>
             <Box marginBottom={1} alignSelf={'center'}>
-                <ColorModeButton />
+                <ColorModeToggle />
             </Box>
             <Flex direction={'column'} justifyContent={'center'} alignItems={'center'} gap={'8'}>
                 <Box>

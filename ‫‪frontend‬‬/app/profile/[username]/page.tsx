@@ -1,23 +1,12 @@
 import React from 'react'
-import octokit from "@/utils/octokit";
 import Custom404 from '@/components/Custom404';
-import Repository from '@/components/Repository';
+import RepositoryList from '@/components/RepositoryList';
 import UserInfo from '@/components/UserInfo';
 import { Flex } from '@chakra-ui/react';
+import { fetchProfile } from '@/services/profile';
+import { IProfile } from '@/types/profile';
+import { ImProfile } from 'react-icons/im';
 
-const fetchData = async (username: string) => {
-    try {
-        const response = await octokit.request('GET /users/{username}', {
-            username,
-        });
-        return response;
-    } catch (error: any) {
-        if (error.status === 404) {
-            return null
-        }
-        throw error;
-    }
-};
 const page = async (
     {
         params,
@@ -29,18 +18,18 @@ const page = async (
 
 ) => {
     const username = (await params).username
-    const user = await fetchData(username)
-    const page = parseInt(searchParams.page || '1', 10);
+    const user: IProfile |null= await fetchProfile(username)
+    const page = parseInt((await searchParams).page || '1', 10);
     if (user) {
         return (
-            <Flex direction={'column'} alignItems={'center'} width={'100%'}>
-                <UserInfo data={{ ...user.data, username }} />
-                <Repository username={username} page={page} />
+            <Flex justifyContent={'center'} width={'100%'} m={'auto'} paddingTop={'16'} paddingX={'8'} direction={{ base:'column',xl:'row' }} height={'100%'}>
+                <UserInfo data={user} />
+                <RepositoryList username={username} page={page} />
             </Flex>
         )
     }
     return (
-        <Custom404 message={`${username} not found!!!`} />
+        <Custom404 username={username} />
     )
 }
 export default page
